@@ -16,7 +16,7 @@ oxbox is a tiny redistribution of OXC (transformer and parser) packaged as a uni
 - `build.config.ts`: obuild bundle (wasm is inlined via the `_vendor/wasm.ts` import); `napi.ts` + `worker_threads.ts` go to their own chunk (`_chunks/napi.mjs`) since workers import the spawning module (`import.meta.url`)
 - `test/`: compares output against native `oxc-transform` / `oxc-parser`
 - `bench/`: mitata benchmarks (`pnpm bench [filter]`): startup + `transform(Sync)` / `parse(Sync)` of oxbox vs oxc wasm (`@oxc-*/binding-wasm32-wasi`) vs oxc napi on pinned inputs of oxc's own benchmarks, all free of diagnostics (fetched into `bench/.fixtures`, gitignored); console output uses mitata `summary()`; unfiltered runs write `bench/results.json` and render it via `bench/report.ts` (`pnpm bench:report`, no re-run needed) to `bench/results.svg` (README chart, white background, env footer); `bench/results.*` are generated and fmt ignored; `bench/size.ts` (`pnpm bench:size`, builds first) measures install size (package files + installed deps, raw and gzip) of oxbox `dist` vs oxc wasm vs oxc napi and renders `bench/size.svg` (README chart) with one stacked bar per impl (transform + parser + shared deps segments)
-- `playground/`: browser playground (pnpm workspace package; Vite + React + Tailwind, `rangi` highlighting), served cross-origin isolated (COOP/COEP) for `SharedArrayBuffer`; run with `pnpm dev`
+- `playground/`: browser playground (pnpm workspace package; Vite + Nitro + React + Tailwind, `rangi` highlighting), served cross-origin isolated (COOP/COEP via Nitro `routeRules` plus Vite `server`/`preview` headers, since Vite serves modules/assets itself there) for `SharedArrayBuffer`; run with `pnpm dev`, build to `playground/.output`
 
 ## Notes
 
