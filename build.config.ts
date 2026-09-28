@@ -5,6 +5,8 @@ export default defineBuildConfig({
     {
       type: "bundle",
       minify: true,
+      // Bundled third-party licenses (oxc) are included in LICENSE
+      license: false,
       input: ["./src/index.ts"],
     },
   ],
