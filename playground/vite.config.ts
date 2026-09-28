@@ -11,7 +11,12 @@ const headers = {
 };
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), nitro({ routeRules: { "/**": { headers } } })],
+  plugins: [
+    react(),
+    tailwindcss(),
+    // Vercel stops matching at Nitro's own `/assets/**` cache rule, so repeat headers there
+    nitro({ routeRules: { "/**": { headers }, "/assets/**": { headers } } }),
+  ],
   resolve: { alias: { oxbox: fileURLToPath(new URL("../src/index.ts", import.meta.url)) } },
   // Vite-served modules/assets (incl. worker scripts) bypass Nitro route rules in dev and preview
   server: { headers },

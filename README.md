@@ -1,8 +1,18 @@
-# oxbox
+# oxbox 🐂
+
+<!-- [![npm version](https://img.shields.io/npm/v/oxbox?color=yellow)](https://npmjs.com/package/oxbox) -->
+<!-- [![npm downloads](https://img.shields.io/npm/dm/oxbox?color=yellow)](https://npm.chart.dev/oxbox) -->
+
+A tiny, portable JS library for parsing and transforming JS/TS/JSX, powered by [oxc](https://oxc.rs).
+
+- ⚡ Optimized wasm build in a single JS chunk, zero dependencies
+- 🪞 Same API as [oxc-parser](https://www.npmjs.com/package/oxc-parser) + [oxc-transform](https://www.npmjs.com/package/oxc-transform)
+- 🤝 Works in browsers and Node.js
+- 💾 Fits on a floppy disk
+
+👉 Try it in the [online playground](https://oxbox.unjs.io/).
 
 ## Usage
-
-Same API as [oxc-transform](https://www.npmjs.com/package/oxc-transform) and [oxc-parser](https://www.npmjs.com/package/oxc-parser) (`parse`, `parseSync`), backed by an embedded wasm binary built from oxc sources (no native binaries, no runtime dependencies):
 
 ```js
 import { parseSync, transformSync } from "oxbox";
@@ -11,9 +21,23 @@ const { code } = transformSync("input.ts", "const a: number = 1");
 const { program } = parseSync("input.ts", "const a: number = 1");
 ```
 
-The wasm is embedded in the JS bundle (deflate-raw + base93) and decoded, decompressed and instantiated lazily on first call. Use `await init()` to warm it up ahead of time (required before calling sync APIs in browsers).
+All `oxc-parser` and `oxc-transform` exports are available (`parse`, `parseSync`, `transform`, `transformSync`, `isolatedDeclaration`, `moduleRunnerTransform`, ...), so oxbox can be used as a drop-in replacement.
 
-Async APIs run on worker threads when `SharedArrayBuffer` is available (in browsers the page must be [cross-origin isolated](https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated)); otherwise oxbox runs single-threaded and async APIs run on the calling thread.
+The wasm is decoded, decompressed and instantiated lazily on first call. Use `await init()` to warm it up ahead of time (**required before calling sync APIs in browsers**).
+
+Async APIs run on a prewarmed worker pool when `SharedArrayBuffer` is available (in browsers, the page must be [cross-origin isolated](https://developer.mozilla.org/en-US/docs/Web/API/Window/crossOriginIsolated)); otherwise oxbox runs single-threaded and async APIs run on the calling thread.
+
+## How it works
+
+The official oxc packages ship the parser and transformer as separate binaries, and since the transformer includes its own parser, much of it is duplicated. They also pull in dozens of platform bindings and a JS runtime ([emnapi](https://github.com/toyobayashi/emnapi) + [napi-rs](https://napi.rs)).
+
+oxbox instead:
+
+- 🔗 Links parser and transformer into **one wasm binary**, optimized together (LTO)
+- ⚡ Enables **SIMD** (`simd128`) across the whole build, not just in a few hand-written spots
+- 🗜️ Embeds the wasm in the JS bundle, compressed with [zopfli](https://github.com/google/zopfli) (deflate-raw) and base93-encoded
+- 🪶 Replaces platform bindings and the emnapi / napi-rs runtime with its own tiny N-API + WASI host that runs in Node.js and browsers
+- 🧵 Runs async APIs on a **multithreaded**, prewarmed worker pool
 
 ## Benchmarks
 
