@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="466" viewBox="0 0 800 466" role="img" aria-label="Install size: oxbox vs oxc (wasm) vs oxc (napi)">
+<style>text{font:12px system-ui,-apple-system,"Segoe UI",sans-serif}.h{font-size:15px;font-weight:600}.b{font-weight:600}.v{font-size:11px;font-variant-numeric:tabular-nums}line{stroke-width:1}.t1{fill:#0b0b0b}.t2{fill:#52514e}.t3{fill:#898781}.grid{stroke:#e1e0d9}.axis{stroke:#c3c2b7}.s0{fill:#2a78d6}.s1{fill:#eb6834}.s2{fill:#1baf7a}.s3{fill:#eda100}</style>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="24" y="38" class="t1 h" text-anchor="start">oxbox vs oxc (wasm) vs oxc (napi): install size</text>
+<text x="24" y="58" class="t2" text-anchor="start">Package files + installed dependencies (lower is better)</text>
+<rect x="24" y="73" width="10" height="10" rx="2" class="s0"/>
+<text x="40" y="82" class="t1" text-anchor="start">transform + parser</text>
+<rect x="186" y="73" width="10" height="10" rx="2" class="s1"/>
+<text x="202" y="82" class="t1" text-anchor="start">transform</text>
+<rect x="285" y="73" width="10" height="10" rx="2" class="s2"/>
+<text x="301" y="82" class="t1" text-anchor="start">parser</text>
+<rect x="363" y="73" width="10" height="10" rx="2" class="s3"/>
+<text x="379" y="82" class="t1" text-anchor="start">shared deps</text>
+<text x="24" y="114" class="t1 b">unpacked<tspan class="t3" font-weight="400" dx="6">· on disk after install</tspan></text>
+<line x1="130.5" x2="130.5" y1="122" y2="236" class="axis"/>
+<line x1="194.5" x2="194.5" y1="122" y2="236" class="grid"/>
+<line x1="258.5" x2="258.5" y1="122" y2="236" class="grid"/>
+<line x1="322.5" x2="322.5" y1="122" y2="236" class="grid"/>
+<line x1="386.5" x2="386.5" y1="122" y2="236" class="grid"/>
+<line x1="450.5" x2="450.5" y1="122" y2="236" class="grid"/>
+<line x1="514.5" x2="514.5" y1="122" y2="236" class="grid"/>
+<line x1="578.5" x2="578.5" y1="122" y2="236" class="grid"/>
+<line x1="642.5" x2="642.5" y1="122" y2="236" class="grid"/>
+<line x1="706.5" x2="706.5" y1="122" y2="236" class="grid"/>
+<text x="24" y="137" class="t2" text-anchor="start">oxbox</text>
+<path class="s0" d="M130,126h88.22a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-88.22z"/>
+<text x="130" y="153" class="v t3" text-anchor="start">transform + parser 1.4 MB</text>
+<text x="228.223424" y="137" class="v t1 b" text-anchor="start">1.4 MB</text>
+<text x="24" y="177" class="t2" text-anchor="start">oxc (wasm)</text>
+<path class="s1" d="M130,166h213.76a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-213.76z"/>
+<text x="130" y="193" class="v t3" text-anchor="start">transform 3.4 MB</text>
+<path class="s2" d="M345.76,166h130.4a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-130.4z"/>
+<text x="345.755136" y="193" class="v t3" text-anchor="start">parser 2.1 MB</text>
+<path class="s3" d="M478.16,166h179.77a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-179.77z"/>
+<text x="478.159808" y="193" class="v t3" text-anchor="start">shared deps 2.9 MB</text>
+<text x="667.925952" y="177" class="v t2" text-anchor="start">8.3 MB</text>
+<text x="24" y="217" class="t2" text-anchor="start">oxc (napi)</text>
+<path class="s1" d="M130,206h271.63a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-271.63z"/>
+<text x="130" y="233" class="v t3" text-anchor="start">transform 4.3 MB</text>
+<path class="s2" d="M403.63,206h225.92a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-225.92z"/>
+<text x="403.629056" y="233" class="v t3" text-anchor="start">parser 3.6 MB</text>
+<text x="639.544384" y="217" class="v t2" text-anchor="start">7.9 MB</text>
+<text x="130" y="250" class="t3" text-anchor="middle">0</text>
+<text x="194" y="250" class="t3" text-anchor="middle">1 MB</text>
+<text x="258" y="250" class="t3" text-anchor="middle">2 MB</text>
+<text x="322" y="250" class="t3" text-anchor="middle">3 MB</text>
+<text x="386" y="250" class="t3" text-anchor="middle">4 MB</text>
+<text x="450" y="250" class="t3" text-anchor="middle">5 MB</text>
+<text x="514" y="250" class="t3" text-anchor="middle">6 MB</text>
+<text x="578" y="250" class="t3" text-anchor="middle">7 MB</text>
+<text x="642" y="250" class="t3" text-anchor="middle">8 MB</text>
+<text x="706" y="250" class="t3" text-anchor="middle">9 MB</text>
+<text x="24" y="266" class="t1 b">gzip<tspan class="t3" font-weight="400" dx="6">· ≈ download size</tspan></text>
+<line x1="130.5" x2="130.5" y1="274" y2="388" class="axis"/>
+<line x1="194.5" x2="194.5" y1="274" y2="388" class="grid"/>
+<line x1="258.5" x2="258.5" y1="274" y2="388" class="grid"/>
+<line x1="322.5" x2="322.5" y1="274" y2="388" class="grid"/>
+<line x1="386.5" x2="386.5" y1="274" y2="388" class="grid"/>
+<line x1="450.5" x2="450.5" y1="274" y2="388" class="grid"/>
+<line x1="514.5" x2="514.5" y1="274" y2="388" class="grid"/>
+<line x1="578.5" x2="578.5" y1="274" y2="388" class="grid"/>
+<line x1="642.5" x2="642.5" y1="274" y2="388" class="grid"/>
+<line x1="706.5" x2="706.5" y1="274" y2="388" class="grid"/>
+<text x="24" y="289" class="t2" text-anchor="start">oxbox</text>
+<path class="s0" d="M130,278h66.93a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-66.93z"/>
+<text x="130" y="305" class="v t3" text-anchor="start">transform + parser 1.1 MB</text>
+<text x="206.931712" y="289" class="v t1 b" text-anchor="start">1.1 MB</text>
+<text x="24" y="329" class="t2" text-anchor="start">oxc (wasm)</text>
+<path class="s1" d="M130,318h70.22a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-70.22z"/>
+<text x="130" y="345" class="v t3" text-anchor="start">1.1 MB</text>
+<path class="s2" d="M202.22,318h36.14a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-36.14z"/>
+<text x="202.22464" y="345" class="v t3" text-anchor="start">596 KB</text>
+<path class="s3" d="M240.37,318h26.2a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-26.2z"/>
+<text x="240.36607999999998" y="345" class="v t3" text-anchor="start">shared deps 472 KB</text>
+<text x="276.566464" y="329" class="v t2" text-anchor="start">2.2 MB</text>
+<text x="24" y="369" class="t2" text-anchor="start">oxc (napi)</text>
+<path class="s1" d="M130,358h112.34a0,0 0 0 1 0,0v14a0,0 0 0 1 -0,0h-112.34z"/>
+<text x="130" y="385" class="v t3" text-anchor="start">transform 1.8 MB</text>
+<path class="s2" d="M244.34,358h62.74a4,4 0 0 1 4,4v6a4,4 0 0 1 -4,4h-62.74z"/>
+<text x="244.344768" y="385" class="v t3" text-anchor="start">parser 1.0 MB</text>
+<text x="317.08768" y="369" class="v t2" text-anchor="start">2.8 MB</text>
+<text x="130" y="402" class="t3" text-anchor="middle">0</text>
+<text x="194" y="402" class="t3" text-anchor="middle">1 MB</text>
+<text x="258" y="402" class="t3" text-anchor="middle">2 MB</text>
+<text x="322" y="402" class="t3" text-anchor="middle">3 MB</text>
+<text x="386" y="402" class="t3" text-anchor="middle">4 MB</text>
+<text x="450" y="402" class="t3" text-anchor="middle">5 MB</text>
+<text x="514" y="402" class="t3" text-anchor="middle">6 MB</text>
+<text x="578" y="402" class="t3" text-anchor="middle">7 MB</text>
+<text x="642" y="402" class="t3" text-anchor="middle">8 MB</text>
+<text x="706" y="402" class="t3" text-anchor="middle">9 MB</text>
+<text x="24" y="434" class="t3" text-anchor="start">napi bindings: @oxc-*/binding-linux-x64-gnu (one per platform) · shared deps: emnapi + napi-rs wasm runtime</text>
+<text x="24" y="450" class="t3" text-anchor="start">oxc 0.151.0 · 2026-09-28 · linux-x64 · measured with pnpm bench:size</text>
+</svg>

@@ -1,0 +1,8 @@
+# Replaces what `napi build --target wasm32-wasip1-threads` sets up (napi-build emits the link args)
+[build]
+target = "wasm32-wasip1-threads"
+# Supported by all current runtimes (Node.js 16.4+, Chrome 91+, Firefox 89+, Safari 16.4+); vectorizes byte scans (memchr)
+rustflags = ["-Ctarget-feature=+simd128"]
+
+[env]
+EMNAPI_LINK_DIR = { value = "../node_modules/emnapi/lib/wasm32-wasip1-threads", relative = true }

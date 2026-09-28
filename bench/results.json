@@ -1,0 +1,254 @@
+{
+  "env": {
+    "date": "2026-09-28",
+    "oxc": "0.151.0",
+    "node": "24.21.0",
+    "os": "Linux 6.12.107+deb13-amd64 (x64)",
+    "cpu": "Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz (16 threads)",
+    "memory": "31 GB"
+  },
+  "startup": [
+    {
+      "name": "oxbox",
+      "avg": 109291810
+    },
+    {
+      "name": "oxc (wasm)",
+      "avg": 46152904
+    },
+    {
+      "name": "oxc (napi)",
+      "avg": 3629056
+    }
+  ],
+  "groups": [
+    {
+      "op": "transformSync",
+      "file": "RadixUIAdoptionSection.jsx",
+      "size": "2.5 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 79465
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 116152
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 43619
+        }
+      ]
+    },
+    {
+      "op": "transform",
+      "file": "RadixUIAdoptionSection.jsx",
+      "size": "2.5 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 129522
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 176100
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 72334
+        }
+      ]
+    },
+    {
+      "op": "parseSync",
+      "file": "RadixUIAdoptionSection.jsx",
+      "size": "2.5 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 238854
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 288600
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 227800
+        }
+      ]
+    },
+    {
+      "op": "parse",
+      "file": "RadixUIAdoptionSection.jsx",
+      "size": "2.5 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 294298
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 346007
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 229973
+        }
+      ]
+    },
+    {
+      "op": "transformSync",
+      "file": "kitchen-sink.tsx",
+      "size": "715.1 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 22408273
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 25779232
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 16400185
+        }
+      ]
+    },
+    {
+      "op": "transform",
+      "file": "kitchen-sink.tsx",
+      "size": "715.1 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 22093491
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 25474757
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 17984551
+        }
+      ]
+    },
+    {
+      "op": "parseSync",
+      "file": "kitchen-sink.tsx",
+      "size": "715.1 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 95810644
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 105994096
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 113732992
+        }
+      ]
+    },
+    {
+      "op": "parse",
+      "file": "kitchen-sink.tsx",
+      "size": "715.1 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 97117416
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 104613659
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 128911672
+        }
+      ]
+    },
+    {
+      "op": "transformSync",
+      "file": "checker.ts",
+      "size": "2853.7 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 55900339
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 65857125
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 45898988
+        }
+      ]
+    },
+    {
+      "op": "transform",
+      "file": "checker.ts",
+      "size": "2853.7 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 55239778
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 65618996
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 53729391
+        }
+      ]
+    },
+    {
+      "op": "parseSync",
+      "file": "checker.ts",
+      "size": "2853.7 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 198261118
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 210548496
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 184724331
+        }
+      ]
+    },
+    {
+      "op": "parse",
+      "file": "checker.ts",
+      "size": "2853.7 KB",
+      "results": [
+        {
+          "name": "oxbox",
+          "avg": 206347642
+        },
+        {
+          "name": "oxc (wasm)",
+          "avg": 206240236
+        },
+        {
+          "name": "oxc (napi)",
+          "avg": 202235070
+        }
+      ]
+    }
+  ]
+}

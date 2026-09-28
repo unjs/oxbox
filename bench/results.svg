@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="942" viewBox="0 0 800 942" role="img" aria-label="Benchmarks: oxbox vs oxc (wasm) vs oxc (napi)">
+<style>text{font:12px system-ui,-apple-system,"Segoe UI",sans-serif}.h{font-size:15px;font-weight:600}.b{font-weight:600}.v{font-size:11px;font-variant-numeric:tabular-nums}line{stroke-width:1}.t1{fill:#0b0b0b}.t2{fill:#52514e}.t3{fill:#898781}.grid{stroke:#e1e0d9}.axis{stroke:#c3c2b7}.s0{fill:#2a78d6}.s1{fill:#eb6834}.s2{fill:#1baf7a}</style>
+<rect width="100%" height="100%" rx="8" fill="#ffffff"/>
+<text x="24" y="38" class="t1 h" text-anchor="start">oxbox vs oxc (wasm) vs oxc (napi)</text>
+<text x="24" y="58" class="t2" text-anchor="start">Average time per call, relative to oxc (napi) (lower is better)</text>
+<rect x="24" y="73" width="10" height="10" rx="2" class="s0"/>
+<text x="40" y="82" class="t1" text-anchor="start">oxbox</text>
+<rect x="95" y="73" width="10" height="10" rx="2" class="s1"/>
+<text x="111" y="82" class="t1" text-anchor="start">oxc (wasm)</text>
+<rect x="201" y="73" width="10" height="10" rx="2" class="s2"/>
+<text x="217" y="82" class="t1" text-anchor="start">oxc (napi)</text>
+<text x="24" y="114" class="t1 b">startup<tspan class="t3" font-weight="400" dx="6">· import + first transformSync in a fresh process (own scale)</tspan></text>
+<text x="24" y="149" class="t2" text-anchor="start">cold start</text>
+<path class="s0" d="M130,126h541a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-541z"/>
+<text x="682" y="135" class="v t2" text-anchor="start">109.3 ms · 30.12x</text>
+<path class="s1" d="M130,140h225.57a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-225.57z"/>
+<text x="366.57066750015395" y="149" class="v t2" text-anchor="start">46.2 ms · 12.72x</text>
+<path class="s2" d="M130,154h13.13a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-13.13z"/>
+<text x="154.13003715465962" y="163" class="v t1 b" text-anchor="start">3.6 ms</text>
+<text x="24" y="192" class="t1 b">RadixUIAdoptionSection.jsx<tspan class="t3" font-weight="400" dx="6">· 2.5 KB</tspan></text>
+<line x1="130.5" x2="130.5" y1="200" y2="396" class="axis"/>
+<line x1="312.5" x2="312.5" y1="200" y2="396" class="axis"/>
+<line x1="494.5" x2="494.5" y1="200" y2="396" class="grid"/>
+<line x1="676.5" x2="676.5" y1="200" y2="396" class="grid"/>
+<text x="24" y="227" class="t2" text-anchor="start">parseSync</text>
+<path class="s0" d="M130,204h185.83a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-185.83z"/>
+<text x="326.8315539947322" y="213" class="v t2" text-anchor="start">238.9 µs · 1.05x</text>
+<path class="s1" d="M130,218h225.58a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-225.58z"/>
+<text x="366.57594381035995" y="227" class="v t2" text-anchor="start">288.6 µs · 1.27x</text>
+<path class="s2" d="M130,232h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="241" class="v t1 b" text-anchor="start">227.8 µs</text>
+<text x="24" y="277" class="t2" text-anchor="start">parse</text>
+<path class="s0" d="M130,254h227.91a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-227.91z"/>
+<text x="368.9066281693938" y="263" class="v t2" text-anchor="start">294.3 µs · 1.28x</text>
+<path class="s1" d="M130,268h268.83a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-268.83z"/>
+<text x="409.82898862040327" y="277" class="v t2" text-anchor="start">346.0 µs · 1.50x</text>
+<path class="s2" d="M130,282h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="291" class="v t1 b" text-anchor="start">230.0 µs</text>
+<text x="24" y="327" class="t2" text-anchor="start">transformSync</text>
+<path class="s0" d="M130,304h326.57a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-326.57z"/>
+<text x="467.5672069510993" y="313" class="v t2" text-anchor="start">79.5 µs · 1.82x</text>
+<path class="s1" d="M130,318h479.64a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-479.64z"/>
+<text x="620.6434810518352" y="327" class="v t2" text-anchor="start">116.2 µs · 2.66x</text>
+<path class="s2" d="M130,332h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="341" class="v t1 b" text-anchor="start">43.6 µs</text>
+<text x="24" y="377" class="t2" text-anchor="start">transform</text>
+<path class="s0" d="M130,354h320.89a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-320.89z"/>
+<text x="461.89106091188097" y="363" class="v t2" text-anchor="start">129.5 µs · 1.79x</text>
+<path class="s1" d="M130,368h438.09a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-438.09z"/>
+<text x="579.0862388365084" y="377" class="v t2" text-anchor="start">176.1 µs · 2.43x</text>
+<path class="s2" d="M130,382h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="391" class="v t1 b" text-anchor="start">72.3 µs</text>
+<text x="130" y="410" class="t3" text-anchor="middle">0</text>
+<text x="312" y="410" class="t3" text-anchor="middle">1x</text>
+<text x="494" y="410" class="t3" text-anchor="middle">2x</text>
+<text x="676" y="410" class="t3" text-anchor="middle">3x</text>
+<text x="24" y="426" class="t1 b">kitchen-sink.tsx<tspan class="t3" font-weight="400" dx="6">· 715.1 KB</tspan></text>
+<line x1="130.5" x2="130.5" y1="434" y2="630" class="axis"/>
+<line x1="312.5" x2="312.5" y1="434" y2="630" class="axis"/>
+<line x1="494.5" x2="494.5" y1="434" y2="630" class="grid"/>
+<line x1="676.5" x2="676.5" y1="434" y2="630" class="grid"/>
+<text x="24" y="461" class="t2" text-anchor="start">parseSync</text>
+<path class="s0" d="M130,438h148.32a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-148.32z"/>
+<text x="289.31995493444856" y="447" class="v t1 b" text-anchor="start">95.8 ms · 0.84x</text>
+<path class="s1" d="M130,452h164.62a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-164.62z"/>
+<text x="305.61591472068193" y="461" class="v t2" text-anchor="start">106.0 ms · 0.93x</text>
+<path class="s2" d="M130,466h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="475" class="v t2" text-anchor="start">113.7 ms</text>
+<text x="24" y="511" class="t2" text-anchor="start">parse</text>
+<path class="s0" d="M130,488h132.11a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-132.11z"/>
+<text x="273.11225242660726" y="497" class="v t1 b" text-anchor="start">97.1 ms · 0.75x</text>
+<path class="s1" d="M130,502h142.7a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-142.7z"/>
+<text x="283.695593755079" y="511" class="v t2" text-anchor="start">104.6 ms · 0.81x</text>
+<path class="s2" d="M130,516h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="525" class="v t2" text-anchor="start">128.9 ms</text>
+<text x="24" y="561" class="t2" text-anchor="start">transformSync</text>
+<path class="s0" d="M130,538h243.67a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-243.67z"/>
+<text x="384.6743708074025" y="547" class="v t2" text-anchor="start">22.4 ms · 1.37x</text>
+<path class="s1" d="M130,552h281.08a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-281.08z"/>
+<text x="422.08337186440275" y="561" class="v t2" text-anchor="start">25.8 ms · 1.57x</text>
+<path class="s2" d="M130,566h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="575" class="v t1 b" text-anchor="start">16.4 ms</text>
+<text x="24" y="611" class="t2" text-anchor="start">transform</text>
+<path class="s0" d="M130,588h218.58a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-218.58z"/>
+<text x="359.5816374843053" y="597" class="v t2" text-anchor="start">22.1 ms · 1.23x</text>
+<path class="s1" d="M130,602h252.8a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-252.8z"/>
+<text x="393.79936201910186" y="611" class="v t2" text-anchor="start">25.5 ms · 1.42x</text>
+<path class="s2" d="M130,616h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="625" class="v t1 b" text-anchor="start">18.0 ms</text>
+<text x="130" y="644" class="t3" text-anchor="middle">0</text>
+<text x="312" y="644" class="t3" text-anchor="middle">1x</text>
+<text x="494" y="644" class="t3" text-anchor="middle">2x</text>
+<text x="676" y="644" class="t3" text-anchor="middle">3x</text>
+<text x="24" y="660" class="t1 b">checker.ts<tspan class="t3" font-weight="400" dx="6">· 2853.7 KB</tspan></text>
+<line x1="130.5" x2="130.5" y1="668" y2="864" class="axis"/>
+<line x1="312.5" x2="312.5" y1="668" y2="864" class="axis"/>
+<line x1="494.5" x2="494.5" y1="668" y2="864" class="grid"/>
+<line x1="676.5" x2="676.5" y1="668" y2="864" class="grid"/>
+<text x="24" y="695" class="t2" text-anchor="start">parseSync</text>
+<path class="s0" d="M130,672h190.34a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-190.34z"/>
+<text x="331.33714525132046" y="681" class="v t2" text-anchor="start">198.3 ms · 1.07x</text>
+<path class="s1" d="M130,686h202.44a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-202.44z"/>
+<text x="343.44330789862215" y="695" class="v t2" text-anchor="start">210.5 ms · 1.14x</text>
+<path class="s2" d="M130,700h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="709" class="v t1 b" text-anchor="start">184.7 ms</text>
+<text x="24" y="745" class="t2" text-anchor="start">parse</text>
+<path class="s0" d="M130,722h180.7a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-180.7z"/>
+<text x="321.70107965942805" y="731" class="v t2" text-anchor="start">206.3 ms · 1.02x</text>
+<path class="s1" d="M130,736h180.6a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-180.6z"/>
+<text x="321.6044204004775" y="745" class="v t2" text-anchor="start">206.2 ms · 1.02x</text>
+<path class="s2" d="M130,750h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="759" class="v t1 b" text-anchor="start">202.2 ms</text>
+<text x="24" y="795" class="t2" text-anchor="start">transformSync</text>
+<path class="s0" d="M130,772h216.66a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-216.66z"/>
+<text x="357.65764739736744" y="781" class="v t2" text-anchor="start">55.9 ms · 1.22x</text>
+<path class="s1" d="M130,786h256.14a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-256.14z"/>
+<text x="397.1385843626879" y="795" class="v t2" text-anchor="start">65.9 ms · 1.43x</text>
+<path class="s2" d="M130,800h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="809" class="v t1 b" text-anchor="start">45.9 ms</text>
+<text x="24" y="845" class="t2" text-anchor="start">transform</text>
+<path class="s0" d="M130,822h182.12a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-182.12z"/>
+<text x="323.11620230350275" y="831" class="v t2" text-anchor="start">55.2 ms · 1.03x</text>
+<path class="s1" d="M130,836h217.27a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-217.27z"/>
+<text x="358.27419759885237" y="845" class="v t2" text-anchor="start">65.6 ms · 1.22x</text>
+<path class="s2" d="M130,850h177a5,5 0 0 1 5,5v0a5,5 0 0 1 -5,5h-177z"/>
+<text x="318" y="859" class="v t1 b" text-anchor="start">53.7 ms</text>
+<text x="130" y="878" class="t3" text-anchor="middle">0</text>
+<text x="312" y="878" class="t3" text-anchor="middle">1x</text>
+<text x="494" y="878" class="t3" text-anchor="middle">2x</text>
+<text x="676" y="878" class="t3" text-anchor="middle">3x</text>
+<text x="24" y="910" class="t3" text-anchor="start">Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz (16 threads) · 31 GB RAM · Linux 6.12.107+deb13-amd64 (x64)</text>
+<text x="24" y="926" class="t3" text-anchor="start">Node.js 24.21.0 · oxc 0.151.0 · 2026-09-28 · measured with mitata (pnpm bench)</text>
+</svg>

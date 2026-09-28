@@ -1,0 +1,11 @@
+[package]
+name = "zopfli-deflate"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+zopfli = { version = "0.8", default-features = false, features = ["std"] }
+
+[profile.release]
+opt-level = 3

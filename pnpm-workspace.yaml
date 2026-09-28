@@ -1,0 +1,13 @@
+# https://pnpm.io/settings
+
+packages:
+  - playground
+
+allowBuilds:
+  "@parcel/watcher": false
+blockExoticSubdeps: true
+dedupePeers: true
+ignoreWorkspaceRootCheck: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - why-is-node-running@3.2.2 # vitest dep, published without provenance

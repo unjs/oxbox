@@ -1,0 +1,47 @@
+{
+  "name": "oxbox",
+  "version": "0.1.0",
+  "description": "OXC parser and transformer packaged as a portable wasm module",
+  "license": "MIT",
+  "repository": "unjs/oxbox",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "scripts": {
+    "build": "obuild",
+    "dev": "pnpm -C playground dev",
+    "fmt": "oxlint . --fix && oxfmt .",
+    "lint": "oxlint . && oxfmt --check .",
+    "prepack": "pnpm build",
+    "release": "pnpm test && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+    "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
+    "typecheck": "tsc --noEmit --skipLibCheck",
+    "vendor": "node scripts/vendor.ts",
+    "bench": "node --disable-warning=ExperimentalWarning bench/index.ts",
+    "bench:report": "node bench/report.ts",
+    "bench:size": "pnpm build && node bench/size.ts"
+  },
+  "devDependencies": {
+    "@oxc-parser/binding-wasm32-wasi": "^0.151.0",
+    "@oxc-transform/binding-wasm32-wasi": "^0.151.0",
+    "@types/node": "latest",
+    "@vitest/coverage-v8": "latest",
+    "changelogen": "latest",
+    "emnapi": "2.0.0-alpha.3",
+    "mitata": "^1.0.34",
+    "obuild": "latest",
+    "oxc-parser": "^0.151.0",
+    "oxc-transform": "^0.151.0",
+    "oxfmt": "latest",
+    "oxlint": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "packageManager": "pnpm@11.20.0"
+}
