@@ -22,7 +22,10 @@ type Impl = {
   parse: (file: string, code: string, opts: Options) => Promise<ParseResult>;
 };
 
-const impls: Record<string, Impl> = {
+// Untyped `oxc-parser` option (spread to skip excess property checks)
+const rawTransfer = { experimentalRawTransfer: true };
+
+const impls: Record<string, Partial<Impl>> = {
   oxbox,
   "oxc (wasm)": {
     transformSync: oxcWasm.transformSync,
@@ -31,6 +34,11 @@ const impls: Record<string, Impl> = {
     parse: async (...args) => wrap(await oxcWasmParser.parse(...args)),
   },
   "oxc (napi)": { ...oxc, ...oxcParser },
+  // Parser only: AST written into a JS-owned buffer instead of JSON (64-bit native builds only)
+  "oxc (napi, experimental raw transfer)": {
+    parseSync: (file, code, opts) => oxcParser.parseSync(file, code, { ...opts, ...rawTransfer }),
+    parse: (file, code, opts) => oxcParser.parse(file, code, { ...opts, ...rawTransfer }),
+  },
 };
 
 // Pinned inputs of oxc's own benchmarks (`tasks/common/src/test_file.rs`), all free of diagnostics
@@ -88,26 +96,30 @@ if (!filter || "startup".includes(filter)) {
   console.log();
 }
 
-const cases = (file: string, code: string): [string, (impl: Impl) => unknown][] => {
+const cases = (file: string, code: string): [keyof Impl, (impl: Partial<Impl>) => unknown][] => {
   const lang = file.slice(file.lastIndexOf(".") + 1) as Options["lang"];
   return [
-    ["transformSync", (impl) => do_not_optimize(impl.transformSync(file, code, { lang }))],
-    ["transform", async (impl) => do_not_optimize(await impl.transform(file, code, { lang }))],
-    ["parseSync", (impl) => consume(impl.parseSync(file, code, { lang }))],
-    ["parse", async (impl) => consume(await impl.parse(file, code, { lang }))],
+    ["transformSync", (impl) => do_not_optimize(impl.transformSync!(file, code, { lang }))],
+    ["transform", async (impl) => do_not_optimize(await impl.transform!(file, code, { lang }))],
+    ["parseSync", (impl) => consume(impl.parseSync!(file, code, { lang }))],
+    ["parse", async (impl) => consume(await impl.parse!(file, code, { lang }))],
   ];
 };
+const implsOf = (op: keyof Impl) => Object.entries(impls).filter(([, impl]) => impl[op]);
 
-const pending: Omit<Group, "results">[] = [];
+const pending: (Omit<Group, "results"> & { n: number })[] = [];
 for (const { name: file, code } of fixtures) {
   for (const [op, fn] of cases(file, code)) {
     const title = `${op} · ${file} (${size(code)})`;
     if (filter && !title.includes(filter)) continue;
-    pending.push({ op, file, size: size(code) });
+    pending.push({ op, file, size: size(code), n: implsOf(op).length });
+    // Large inputs: gc (`--expose-gc`) before each iteration to keep collections of previous ASTs
+    // out of samples; small ones are batched and a full gc per iteration would skew them instead
+    const gc = code.length > 100_000 ? "inner" : "once";
     group(title, () => {
       summary(() => {
-        for (const [name, impl] of Object.entries(impls)) {
-          bench(name, () => fn(impl));
+        for (const [name, impl] of implsOf(op)) {
+          bench(name, () => fn(impl)).gc(gc);
         }
       });
     });
@@ -119,16 +131,16 @@ if (pending.length) {
   // mitata only discards one call per bench for slow (large file) cases: warm up wasm/JIT and
   // every worker of the async pools (concurrent batches, 2x the default pool size of 4) upfront
   const small = fixtures[0]!;
-  for (const impl of Object.values(impls)) {
-    for (const [, fn] of cases(small.name, small.code)) {
+  for (const [op, fn] of cases(small.name, small.code)) {
+    for (const [, impl] of implsOf(op)) {
       for (let i = 0; i < 4; i++) await Promise.all(Array.from({ length: 8 }, () => fn(impl)));
     }
   }
   const { benchmarks } = await run();
   // Benchmarks are returned in registration order: one per implementation per group
-  const n = Object.keys(impls).length;
-  for (const [i, g] of pending.entries()) {
-    const results = benchmarks.slice(i * n, i * n + n).map(({ alias: name, runs: [r] }) => {
+  let offset = 0;
+  for (const { n, ...g } of pending) {
+    const results = benchmarks.slice(offset, (offset += n)).map(({ alias: name, runs: [r] }) => {
       if (!r?.stats) throw r?.error ?? new Error(`${g.op} · ${g.file}: ${name} failed`);
       return { name, avg: Math.round(r.stats.avg) };
     });

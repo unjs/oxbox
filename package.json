@@ -23,7 +23,7 @@
     "test": "pnpm lint && pnpm typecheck && vitest run --coverage",
     "typecheck": "tsc --noEmit --skipLibCheck",
     "vendor": "node scripts/vendor.ts",
-    "bench": "node --disable-warning=ExperimentalWarning bench/index.ts",
+    "bench": "node --expose-gc --disable-warning=ExperimentalWarning bench/index.ts",
     "bench:report": "node bench/report.ts",
     "bench:size": "pnpm build && node bench/size.ts"
   },

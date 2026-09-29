@@ -13,7 +13,8 @@ export type Results = {
 const { env, startup, groups }: Results = JSON.parse(
   readFileSync(new URL("results.json", import.meta.url), "utf8"),
 );
-const names = groups[0]?.results.map((r) => r.name) ?? startup.map((r) => r.name);
+// Series order (colors): first seen across groups, some implementations only cover some ops
+const names = [...new Set([...startup, ...groups.flatMap((g) => g.results)].map((r) => r.name))];
 const baseline = "oxc (napi)";
 
 writeFileSync(new URL("results.svg", import.meta.url), svg());
@@ -37,7 +38,7 @@ function svg() {
   const BW = W - PAD - X0 - 100; // longest bar (room for the value label)
   const BAR = 10;
   const GAP = 4;
-  const ROW = names.length * BAR + (names.length - 1) * GAP;
+  const rowH = (n: number) => n * BAR + (n - 1) * GAP;
   const ROW_GAP = 12;
   const max = Math.ceil(
     Math.max(...groups.flatMap((g) => g.results.map((r) => ratio(r, g.results)))),
@@ -63,7 +64,7 @@ function svg() {
     results: { name: string; avg: number }[],
     scale: number,
   ) => {
-    text(PAD, y + ROW / 2 + 4, "t2", label);
+    text(PAD, y + rowH(results.length) / 2 + 4, "t2", label);
     const fastest = Math.min(...results.map((r) => r.avg));
     for (const [i, r] of results.entries()) {
       const w = r.avg * scale;
@@ -92,7 +93,7 @@ function svg() {
     heading(y, "startup", "import + first transformSync in a fresh process (own scale)");
     y += 12;
     row(y, "cold start", startup, BW / Math.max(...startup.map((r) => r.avg)));
-    y += ROW + ROW_GAP;
+    y += rowH(startup.length) + ROW_GAP;
   }
 
   for (const file of new Set(groups.map((g) => g.file))) {
@@ -102,7 +103,7 @@ function svg() {
     y += 16;
     heading(y, file, rows[0]!.size);
     y += 12;
-    const h = rows.length * (ROW + ROW_GAP) - ROW_GAP;
+    const h = rows.reduce((h, g) => h + rowH(g.results.length) + ROW_GAP, -ROW_GAP);
     for (let t = 0; t <= max; t++) {
       const x = X0 + (BW / max) * t + 0.5;
       el.push(
@@ -112,7 +113,7 @@ function svg() {
     for (const g of rows) {
       const napi = g.results.find((r) => r.name === baseline)!.avg;
       row(y, g.op, g.results, BW / max / napi);
-      y += ROW + ROW_GAP;
+      y += rowH(g.results.length) + ROW_GAP;
     }
     y -= ROW_GAP;
     for (let t = 0; t <= max; t++)
@@ -132,7 +133,7 @@ function svg() {
   y += PAD - 8;
 
   const colors = { t1: "#0b0b0b", t2: "#52514e", t3: "#898781", grid: "#e1e0d9", axis: "#c3c2b7" };
-  const series = ["#2a78d6", "#eb6834", "#1baf7a"];
+  const series = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"];
   const theme = [
     ...Object.entries(colors).map(
       ([k, v]) => `.${k}{${k === "grid" || k === "axis" ? "stroke" : "fill"}:${v}}`,

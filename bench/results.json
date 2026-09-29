@@ -1,6 +1,6 @@
 {
   "env": {
-    "date": "2026-09-28",
+    "date": "2026-09-29",
     "oxc": "0.151.0",
     "node": "24.21.0",
     "os": "Linux 6.12.107+deb13-amd64 (x64)",
@@ -10,15 +10,15 @@
   "startup": [
     {
       "name": "oxbox",
-      "avg": 109291810
+      "avg": 108448008
     },
     {
       "name": "oxc (wasm)",
-      "avg": 46152904
+      "avg": 51017977
     },
     {
       "name": "oxc (napi)",
-      "avg": 3629056
+      "avg": 3477099
     }
   ],
   "groups": [
@@ -29,15 +29,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 79465
+          "avg": 72552
         },
         {
           "name": "oxc (wasm)",
-          "avg": 116152
+          "avg": 110267
         },
         {
           "name": "oxc (napi)",
-          "avg": 43619
+          "avg": 42555
         }
       ]
     },
@@ -48,15 +48,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 129522
+          "avg": 127044
         },
         {
           "name": "oxc (wasm)",
-          "avg": 176100
+          "avg": 168170
         },
         {
           "name": "oxc (napi)",
-          "avg": 72334
+          "avg": 72697
         }
       ]
     },
@@ -67,15 +67,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 238854
+          "avg": 229199
         },
         {
           "name": "oxc (wasm)",
-          "avg": 288600
+          "avg": 279254
         },
         {
           "name": "oxc (napi)",
-          "avg": 227800
+          "avg": 192787
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 58058
         }
       ]
     },
@@ -86,15 +90,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 294298
+          "avg": 297798
         },
         {
           "name": "oxc (wasm)",
-          "avg": 346007
+          "avg": 364916
         },
         {
           "name": "oxc (napi)",
-          "avg": 229973
+          "avg": 256452
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 77212
         }
       ]
     },
@@ -105,15 +113,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 22408273
+          "avg": 22721260
         },
         {
           "name": "oxc (wasm)",
-          "avg": 25779232
+          "avg": 26815073
         },
         {
           "name": "oxc (napi)",
-          "avg": 16400185
+          "avg": 17377528
         }
       ]
     },
@@ -124,15 +132,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 22093491
+          "avg": 22533817
         },
         {
           "name": "oxc (wasm)",
-          "avg": 25474757
+          "avg": 26689730
         },
         {
           "name": "oxc (napi)",
-          "avg": 17984551
+          "avg": 18458854
         }
       ]
     },
@@ -143,15 +151,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 95810644
+          "avg": 86486928
         },
         {
           "name": "oxc (wasm)",
-          "avg": 105994096
+          "avg": 92124417
         },
         {
           "name": "oxc (napi)",
-          "avg": 113732992
+          "avg": 94419693
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 20330598
         }
       ]
     },
@@ -162,15 +174,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 97117416
+          "avg": 87021008
         },
         {
           "name": "oxc (wasm)",
-          "avg": 104613659
+          "avg": 92274736
         },
         {
           "name": "oxc (napi)",
-          "avg": 128911672
+          "avg": 100970820
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 18940740
         }
       ]
     },
@@ -181,15 +197,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 55900339
+          "avg": 55159218
         },
         {
           "name": "oxc (wasm)",
-          "avg": 65857125
+          "avg": 64159735
         },
         {
           "name": "oxc (napi)",
-          "avg": 45898988
+          "avg": 42788897
         }
       ]
     },
@@ -200,15 +216,15 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 55239778
+          "avg": 54064194
         },
         {
           "name": "oxc (wasm)",
-          "avg": 65618996
+          "avg": 66366539
         },
         {
           "name": "oxc (napi)",
-          "avg": 53729391
+          "avg": 43255698
         }
       ]
     },
@@ -219,15 +235,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 198261118
+          "avg": 186719950
         },
         {
           "name": "oxc (wasm)",
-          "avg": 210548496
+          "avg": 196287981
         },
         {
           "name": "oxc (napi)",
-          "avg": 184724331
+          "avg": 159356818
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 35447029
         }
       ]
     },
@@ -238,15 +258,19 @@
       "results": [
         {
           "name": "oxbox",
-          "avg": 206347642
+          "avg": 188049014
         },
         {
           "name": "oxc (wasm)",
-          "avg": 206240236
+          "avg": 205063834
         },
         {
           "name": "oxc (napi)",
-          "avg": 202235070
+          "avg": 182429042
+        },
+        {
+          "name": "oxc (napi, experimental raw transfer)",
+          "avg": 37078253
         }
       ]
     }
