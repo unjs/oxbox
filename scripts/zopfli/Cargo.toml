@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-zopfli = { version = "0.8", default-features = false, features = ["std"] }
+zopfli = { version = "0.8.3", default-features = false, features = ["std"] }
 
 [profile.release]
 opt-level = 3
