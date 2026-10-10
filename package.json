@@ -28,20 +28,20 @@
     "bench:size": "pnpm build && node bench/size.ts"
   },
   "devDependencies": {
-    "@oxc-parser/binding-wasm32-wasi": "^0.151.0",
-    "@oxc-transform/binding-wasm32-wasi": "^0.151.0",
+    "@oxc-parser/binding-wasm32-wasi": "^0.153.0",
+    "@oxc-transform/binding-wasm32-wasi": "^0.153.0",
     "@types/node": "latest",
     "@vitest/coverage-v8": "latest",
     "changelogen": "latest",
-    "emnapi": "2.0.0-alpha.3",
+    "emnapi": "2.0.0-alpha.6",
     "mitata": "^1.0.34",
     "obuild": "latest",
-    "oxc-parser": "^0.151.0",
-    "oxc-transform": "^0.151.0",
+    "oxc-parser": "^0.153.0",
+    "oxc-transform": "^0.153.0",
     "oxfmt": "latest",
     "oxlint": "latest",
     "typescript": "latest",
     "vitest": "latest"
   },
-  "packageManager": "pnpm@11.20.0"
+  "packageManager": "pnpm@11.28.5"
 }
