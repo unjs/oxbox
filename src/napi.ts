@@ -253,6 +253,15 @@ function createHost({ module, memory, tidCounter, poolSize, isMain }: HostOption
     napi_create_array_with_length: (_e, n, r) => (w32(r, h(new Array(n >>> 0))), 0),
     napi_create_uint32: (_e, n, r) => (w32(r, h(n >>> 0)), 0),
     napi_create_string_utf8: (_e, p, len, r) => (w32(r, h(cstr(p, len))), 0),
+    napi_create_string_utf16: (_e, p, len, r) => {
+      if (len >>> 0 === 0xffffffff)
+        for (len = 0; at(p + len * 2, 2), dv.getUint16(p + len * 2, true); len++);
+      at(p, len * 2);
+      const units = new Uint16Array(u8.slice(p, p + len * 2).buffer);
+      let s = "";
+      for (let i = 0; i < len; i += 8192) s += String.fromCharCode(...units.subarray(i, i + 8192));
+      return (w32(r, h(s)), 0);
+    },
     napi_get_value_string_utf8: (_e, v, p, size, r) => {
       const s = H[v];
       if (typeof s !== "string") return 3; /* napi_string_expected */

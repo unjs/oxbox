@@ -146,13 +146,10 @@ function wrap(result: ParseResult): ParseResult {
   };
 }
 
-// Static copies of the binding's enums (read-only, non-enumerable) so importing does not load the wasm
+// Static copies of the binding's enums so importing does not load the wasm
 type EnumOf<E extends string> = { readonly [K in `${E}`]: Extract<E, K> };
 const enumOf = <E extends string>(keys: `${E}`[]) =>
-  Object.defineProperties(
-    {},
-    Object.fromEntries(keys.map((key) => [key, { value: key }])),
-  ) as EnumOf<E>;
+  Object.fromEntries(keys.map((key) => [key, key])) as EnumOf<E>;
 
 export const Severity = enumOf<_Severity>(["Error", "Warning", "Advice"]);
 export type Severity = _Severity;
