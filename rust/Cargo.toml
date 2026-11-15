@@ -21,3 +21,6 @@ codegen-units = 1
 strip = "symbols"
 debug = false
 panic = "abort"
+
+[patch.crates-io]
+bytecount = { path = "bytecount" }

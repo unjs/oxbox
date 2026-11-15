@@ -34,7 +34,7 @@ The official oxc packages ship the parser and transformer as separate binaries, 
 oxbox instead:
 
 - 🔗 Links parser and transformer into **one wasm binary**, optimized together (LTO)
-- ⚡ Enables **SIMD** (`simd128`) across the whole build, not just in a few hand-written spots
+- 🧩 Builds **without SIMD** (`simd128`), so it runs on every wasm engine (measured within ~1.5% of a SIMD build)
 - 🗜️ Embeds the wasm in the JS bundle, compressed with [zopfli](https://github.com/google/zopfli) (deflate-raw) and base93-encoded
 - 🪶 Replaces platform bindings and the emnapi / napi-rs runtime with its own tiny N-API + WASI host that runs in Node.js and browsers
 - 🧵 Runs async APIs on a **multithreaded**, prewarmed worker pool

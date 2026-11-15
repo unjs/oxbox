@@ -1,0 +1,5 @@
+[package]
+name = "bytecount"
+version = "0.6.9"
+edition = "2024"
+publish = false
