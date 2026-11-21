@@ -12,7 +12,7 @@ oxc_parser_napi = { path = "../vendor/oxc/napi/parser" }
 oxc_transform_napi = { path = "../vendor/oxc/napi/transform" }
 
 [build-dependencies]
-napi-build = "2"
+napi-build = "2.6.0"
 
 [profile.release]
 opt-level = 3
